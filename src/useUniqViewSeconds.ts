@@ -7,7 +7,7 @@ interface ApiResponse {
 }
 
 const useUniqViewSeconds = (url: string) => {
-  const [data, setData] = useState<string>();
+  const [data, setData] = useState<number[]>();
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,7 +22,7 @@ const useUniqViewSeconds = (url: string) => {
         const result: ApiResponse = await response.json();
         const uniqueSortedSeconds = getUniqueSortedSeconds(result);
 
-        setData(uniqueSortedSeconds.join(', '));
+        setData(uniqueSortedSeconds);
       } catch (error: any) {
         setError(error.message);
       } finally {

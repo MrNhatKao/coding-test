@@ -16,7 +16,7 @@ const ViewComponent: React.FC = () => {
   return (
     <div>
       <h2>Unique View Seconds</h2>
-      <div>{data}</div>
+      <div>{JSON.stringify(data, null, 2)}</div>
     </div>
   );
 };
